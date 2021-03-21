@@ -6,11 +6,22 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 09:49:33 by aberry            #+#    #+#             */
-/*   Updated: 2020/11/23 21:41:43 by aberry           ###   ########.fr       */
+/*   Updated: 2020/11/04 18:24:43 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char			**ft_clear(char **tab)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
 
 static size_t		ft_strlen_c(const char *str, char c)
 {

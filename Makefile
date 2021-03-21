@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/21 14:06:26 by aberry            #+#    #+#              #
-#    Updated: 2021/02/08 20:57:37 by aberry           ###   ########.fr        #
+#    Created: 2021/03/21 16:59:06 by aberry            #+#    #+#              #
+#    Updated: 2021/03/21 17:07:49 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,13 @@ SRC =	ft_bzero.c   \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c   \
-		ft_itoa_base.c\
+		ft_itoa.c\
 		ft_strmapi.c\
 		ft_putchar_fd.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
-		ft_putnbr_fd.c \
-		ft_lstnew.c\
+		ft_putnbr_fd.c
+SRC_BONUS = ft_lstnew.c\
 		ft_lstadd_front.c\
 		ft_lstsize.c\
 		ft_lstlast.c\
@@ -54,8 +54,9 @@ SRC =	ft_bzero.c   \
 		ft_lstdelone.c\
 		ft_lstclear.c\
 		ft_lstiter.c\
-		ft_lstmap.c\
-		ft_clear.c
+		ft_lstmap.c
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 OBJ = $(SRC:.c=.o)
 
@@ -65,11 +66,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 INCLD = ./
 
-all:	$(NAME)
+all:	$(NAME) aberry
 
 $(NAME):	$(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+
+bonus:	for_bonus aberry
+
+for_bonus: $(NAME) $(OBJ_BONUS)
+	@ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
+	@ranlib $(NAME)
+	
 
 .c.o:
 	@$(CC) $(CFLAGS) -I$(INCLD) -c $< -o $(<:.c=.o)
@@ -78,4 +86,16 @@ clean:
 	@rm -rf $(OBJ) $(OBJ_BONUS)
 fclean: clean
 	@rm -rf $(NAME)
+
+aberry:
+	@echo "\033[36m\
+	░█████╗░██████╗░███████╗██████╗░██████╗░██╗░░░██╗░░░░░░██████╗░░░███╗░░\n\
+	██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗░██╔╝░░░░░░╚════██╗░████║░░\n\
+	███████║██████╦╝█████╗░░██████╔╝██████╔╝░╚████╔╝░█████╗░░███╔═╝██╔██║░░\n\
+	██╔══██║██╔══██╗██╔══╝░░██╔══██╗██╔══██╗░░╚██╔╝░░╚════╝██╔══╝░░╚═╝██║░░\n\
+	██║░░██║██████╦╝███████╗██║░░██║██║░░██║░░░██║░░░░░░░░░███████╗███████╗\n\
+	╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░░░░╚══════╝╚══════╝\033[0m"
+
 re: fclean  all
+
+

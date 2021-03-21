@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:56:04 by aberry            #+#    #+#             */
-/*   Updated: 2021/02/08 20:58:07 by aberry           ###   ########.fr       */
+/*   Updated: 2020/11/04 18:33:45 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
 
 typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-char				**ft_clear(char **tab);
 
 void				*ft_memset(void *destination, int c, size_t n);
 
@@ -85,7 +80,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 
 char				**ft_split(char const *s, char c);
 
-char				*ft_itoa_base(int n, char *alpha, int base);
+char				*ft_itoa(int n);
 
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
