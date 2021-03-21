@@ -3,6 +3,9 @@
 
 ![messagif (1)](https://user-images.githubusercontent.com/73585355/111910033-b99d5c00-8a70-11eb-9d5b-c08c13ee68eb.gif)
 
+Libft - это проект школы 42. Цель этого проекта - создать собственную библиотеку C.\
+Подробное описание в файле `en.subject.pdf`.
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/73585355/111908135-1eed4f00-8a69-11eb-9de5-1e08690aee80.png" width="48%" align="left"/>
   <img src="https://user-images.githubusercontent.com/73585355/111908092-ecdbed00-8a68-11eb-80f8-a4eb5e367989.png" width="48%" />
